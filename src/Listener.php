@@ -69,14 +69,14 @@ class Listener
         $timestamp = time();
         $signature = hash_hmac('sha256', $client.$timestamp, $this->secretKey);
 
-        $request = curl_init($this->serverUrl.'init.php');
+        $request = curl_init($this->serverUrl.'ping.php');
         $params = [
             'client' => $client,
             'timestamp' => $timestamp,
             'signature' => $signature
         ];
         curl_setopt($request, CURLOPT_POST, true);
-        curl_setopt($request, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($request, CURLOPT_POSTFIELDS, http_build_query($params));
         curl_exec($request);
 
         return curl_getinfo($request, CURLINFO_RESPONSE_CODE);
