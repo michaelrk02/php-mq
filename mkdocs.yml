@@ -1,6 +1,7 @@
 site_name: PHP-MQ
 site_url: https://phpmq.michaelrk02.my.id/
 repo_url: https://github.com/michaelrk02/php-mq/
+edit_uri: ''
 site_dir: build/docs
 nav:
     - Home: index.md
