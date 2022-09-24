@@ -49,25 +49,10 @@ var sse = new EventSource('listen.php?channel=' + channelId);
 var clientId = null;
 sse.addEventListener('phpmq_client_id', function(event) {
     clientId = parseInt(event.data);
-
-    // PING every 15 seconds
-    setInterval(function() {
-        var ping = new XMLHttpRequest();
-        ping.open('GET', 'ping.php?client=' + clientId);
-        ping.send();
-    }, 15000);
 });
 sse.addEventListener('echo', function(event) {
     console.log('Echo from server: ' + event.data);
 })
-```
-
-Send PING request, within **ping.php**:
-
-```php
-$clientId = $_GET['client'];
-
-$listener->ping($clientId);
 ```
 
 Broadcast SSE message, within **broadcaster.php**

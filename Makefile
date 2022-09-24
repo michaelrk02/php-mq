@@ -1,4 +1,7 @@
+MKDOCS ?= mkdocs
+PHP ?= php
+
 .PHONY : docs
 docs:
-	mkdocs build
-	php7 phpdoc
+	${MKDOCS} build
+	${PHP} phpdoc

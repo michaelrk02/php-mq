@@ -34,7 +34,5 @@ Below is the example diagram of a broadcasting system:
 5. PHP-MQ server will periodically check for new messages on the channel the current client resides in.
 6. If there are messages enqueued on the channel for the client, it will be automatically sent by PHP-MQ server to the listener application via SSE event. The server then dequeues all sent messages, removing them from the database.
 7. Listener application processes SSE messages sent by PHP-MQ server.
-8. Listener application periodically sends PING POST request to the PHP-MQ server to indicate that the client is still alive.
-9. PHP-MQ will update the client's last PING time. When the client is idle for a relatively long time, it will be automatically removed from the database when a new listener request occurs (eventhough it will be removed subsequently after the client disconnects as described in step 10 and 11, this is considered to be the last resort option when the daemon process terminated unexpectedly, thus leaves the database not in sync).
-10. When the client disconnects (browser closes), it will signal the PHP-MQ server to stop the daemon process containing that client.
-11. The daemon process stops and its corresponding client ID is removed from the database.
+8. When the client disconnects (browser closes), it will signal the PHP-MQ server to stop the daemon process containing that client.
+9. The daemon process stops and its corresponding client ID is removed from the database.
