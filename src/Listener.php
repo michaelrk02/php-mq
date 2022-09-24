@@ -79,6 +79,6 @@ class Listener
         curl_setopt($request, CURLOPT_POSTFIELDS, http_build_query($params));
         curl_exec($request);
 
-        return curl_getinfo($request, CURLINFO_RESPONSE_CODE);
+        return (int)curl_getinfo($request, CURLINFO_RESPONSE_CODE);
     }
 }

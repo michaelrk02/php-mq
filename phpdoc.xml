@@ -6,7 +6,7 @@
 >
     <title>PhpMq</title>
     <paths>
-        <output>docs</output>
+        <output>build/api</output>
     </paths>
     <version number="1.0.0">
         <api>

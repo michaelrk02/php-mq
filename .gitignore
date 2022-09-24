@@ -3,6 +3,4 @@
 /.phpdoc
 /phpdoc
 
-/docs/
-!/docs/.gitkeep
-
+/build/
